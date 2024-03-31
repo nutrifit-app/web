@@ -1,0 +1,45 @@
+---
+interface Props {
+    name: string;
+    content: string;
+}
+
+const { name, content } = Astro.props;
+---
+
+<li class="link-card">
+    <h2>
+        {name}
+    </h2>
+    <blockquote>
+        "{content}""
+    </blockquote>
+</li>
+<style>
+    .link-card {
+        list-style: none;
+        padding: 0.5rem;
+        border-radius: 7px;
+        background-position: 100%;
+        transition: background-position 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+        box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+        border: 1px solid var(--primary);
+        margin-bottom: 1rem;
+        max-height: 200px;
+    }
+
+    h2 {
+        margin: 0;
+        font-size: 1.25rem;
+        transition: color 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    blockquote {
+        margin-top: 0.5rem;
+        margin-bottom: 0;
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-line-clamp: 6; /* number of lines to show */
+        -webkit-box-orient: vertical;
+        font-style: italic;
+    }
+</style>

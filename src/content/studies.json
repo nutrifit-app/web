@@ -1,0 +1,27 @@
+[
+    {
+        "img": "uvm.png",
+        "alt": "UVM logo",
+        "title": "Licenciatura en nutrición en Universidad del Valle de México campus Mexicali"
+    },
+    {
+        "img": "ISAK_blanco.svg",
+        "alt": "ISAK logo",
+        "title": "Técnico antropometrista por la Sociedad Internacional de Avances en Cineatropometría nivel 2"
+    },
+    {
+        "img": "aep.jpg",
+        "alt": "AEP logo",
+        "title": "Entrenadora personal con validez nacional por la Academia para Entrenadores Personales de Baja California"
+    }, 
+    {
+        "img": "inaf.png",
+        "alt": "INAF logo",
+        "title": "Entrenadora especialista en hipertrofia muscular por el instituto nacional de Acondicionamiento Físico y Nutrición Deportiva en coordinación con la ACAFFEM y Aval de National Strength and Conditioning Association Spain"
+    },
+    {
+        "img": "centro_de_terapia_cognitiva.svg",
+        "alt": "Centro de Terapia Cognitiva logo",
+        "title": "Cursante de diplomado Trastornos de la Conducta Alimentaria por el Centro de psicoloterapia cognitiva."
+    }
+]

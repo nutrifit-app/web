@@ -1,0 +1,42 @@
+---
+interface Props {
+    src: string;
+    title: string;
+    alt: string;
+}
+
+const { src, title, alt } = Astro.props;
+---
+
+<li class="studie-item">
+
+    <img src={src} alt={alt} />
+    <label>{title}</label>
+</li>
+<style>
+    img {
+        width: 3rem;
+    }
+    .studie-item {
+        list-style: none;
+        padding: 0.5rem;
+        border-radius: 7px;
+        background-position: 100%;
+        transition: background-position 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+        box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+        border: 1px solid var(--primary);
+        margin-bottom: 1rem;
+        max-height: 200px;
+    }
+
+    li {
+        margin-top: 0.5rem;
+        margin-bottom: 0;
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-line-clamp: 7; /* number of lines to show */
+        -webkit-box-orient: vertical;
+        color: var(--text);
+        fill: var(--text);
+    }
+</style>
