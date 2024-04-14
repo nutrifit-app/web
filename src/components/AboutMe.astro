@@ -1,0 +1,38 @@
+---
+import studies from '../content/studies.json';
+import Studies from "../components/Studies.astro";
+---
+<section>
+    <h3 id="about">Conoce a tu nutri</h3>
+    <p>
+        Mas que lo que pueda agregar en formación académica y
+        experiencia profesional, soy una persona que se ha dedicado a
+        estudiar (y sigo estudiando) para ayudarte a ti a alcanzar tus
+        objetivos de una manera saludable, respetuosa con tu cuerpo,
+        creando habitos duraderos con planes de alimentación saludables,
+        intentando romper con mitos de la nutrición y el ejercicio. 
+    </p>
+    <p>Soy
+        una persona que busca darle a mis pacientes un espacio seguro en
+        donde no se les juzgue.</p>
+    <p>
+        Soy fiel fan de todos mis pacientes, me gusta verlos disfrutar
+        de su proceso nutricional y claro me llena de felicidad ver sus
+        logros. Me apasiona el deporte, el mar, los atardeceres y el
+        chismecito con mis pacientes en consulta.
+    </p>
+    <img src="Nutrifit-071.jpg" class="about-me-pic" />
+    <h3>Formación académica</h3>
+    <ul class="list">
+        {studies.map(study => (<Studies src={study.img} title={study.title} alt={study.alt}/>))}
+    </ul>
+</section>
+<style>
+    .list {
+		padding: 0;
+	}
+
+	.about-me-pic {
+		width: 100%;
+	}
+</style>
