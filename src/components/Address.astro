@@ -1,0 +1,63 @@
+---
+import { Icon } from 'astro-icon/components';
+---
+
+<section class="get-in-touch" id="address">
+    <h3>Dirección</h3>
+    <address>Carroceros 1948, Burócratas, 21020 Mexicali, B.C.</address>
+    <div class="google-map">
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3359.206435460732!2d-115.45866722450087!3d32.65395027371538!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80d7706c7dc05e47%3A0x37eb8a09e0f8ae91!2sNutri%C3%B3loga%20Andrea%20Guerrero!5e0!3m2!1sen!2smx!4v1711912791398!5m2!1sen!2smx"
+            width="600"
+            height="450"
+            style="border:0;"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+    <h4>Contacto</h4>
+    <div class="contact">
+        
+            <a target="_blank" href="https://www.facebook.com/NutriologaAndreaGuerrero1/"><Icon name="facebook" size={34}/></a>
+        
+        
+            <a target="_blank" href="https://www.instagram.com/nutrifit_andrea_guerrero/?hl=en"><Icon name="instagram" size={36} /></a>
+        
+        
+            <a><Icon name="whatsapp" size={34} /></a>
+        
+    </div>
+    
+</section>
+<style>
+    .get-in-touch {
+        background-color: var(--text);
+        color: var(--white)
+    }
+    .google-map {
+        padding-bottom: 50%;
+        position: relative;
+    }
+
+    .google-map iframe {
+        height: 100%;
+        width: 100%;
+        left: 0;
+        top: 0;
+        position: absolute;
+    }
+    h4 {
+        text-align: center;
+    }
+    .contact {
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+        width: 100%;
+       
+        a {
+            margin-right: 1.5rem;
+            height: 36px;
+        }
+    }
+</style>
