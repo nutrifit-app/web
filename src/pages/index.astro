@@ -5,88 +5,12 @@ import Testimonial from "../components/Testimonial.astro";
 import Address from "../components/Address.astro";
 import Navigation from '../components/Navigation.astro'
 import AboutMe from '../components/AboutMe.astro';
+import Hero from '../components/Hero/index.astro';
+import Brief from '../components/Brief.astro';
 import testimonials from "../content/testimonials.json";
-
-// import { fade } from "astro:transitions";
 ---
 
 <Layout title="Nutrifit">
-	<main>
-		<header class="header" id="home">
-			<Navigation />
-			<div class="logo-section">
-				<Logo />
-			</div>
-			<h1 transition:animate="slide">Nutrióloga Andrea Guerrero</h1>
-		</header>
-		<section class="hero">
-			<img src="Nutrifit-052.jpg" />
-			<h2>"Tu guía hacia tus objetivos"</h2>
-			<button class="action-button">Agendar una cita</button>
-		</section>
-		<section>
-			<h3 id="reviews">Qué dicen mis pacientes de mi?</h3>
-			<article>
-				<ul class="list">
-					{
-						testimonials.map((review) => (
-							<Testimonial
-								name={review.name}
-								content={review.content}
-							/>
-						))
-					}
-				</ul>
-			</article>
-		</section>
-		<AboutMe />
-		<Address />
-	</main>
+	<Hero />
+	<Brief />
 </Layout>
-
-<style>
-	main {
-		padding: 0 1.5rem 1.5rem 1.5rem;
-		width: 800px;
-		max-width: calc(100% - 2rem);
-		font-size: 1rem;
-		line-height: 1.6;
-	}
-
-	h1 {
-		font-size: 1.5rem;
-		font-weight: 700;
-		line-height: 1;
-		align-self: flex-start;
-	}
-
-	h2 {
-		text-align: end;
-	}
-
-	h3 {
-		text-align: center;
-	}
-
-	.hero {
-		display: flex;
-		flex-direction: column;
-
-		@media (min-width: 768px) {
-			flex-direction: row;
-		}
-	}
-
-	.logo-section {
-		height: 60px;
-	}
-
-	.text-gradient {
-		background-image: var(--accent-gradient);
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-		background-size: 400%;
-		background-position: 0%;
-		margin: 0px 16px;
-	}
-</style>

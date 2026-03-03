@@ -1,0 +1,166 @@
+---
+---
+
+<section class="brief-section w-full min-h-screen flex items-end justify-center p-8 xl:p-16 relative">
+	<div class="max-w-4xl mx-auto">
+		<blockquote class="relative">
+			<svg class="quote-mark absolute -top-4 -left-4 w-16 h-16 text-[#5476f3]/20" fill="currentColor" viewBox="0 0 32 32">
+				<path d="M10 8c-3.3 0-6 2.7-6 6v10h10V14h-6c0-2.2 1.8-4 4-4V8zm16 0c-3.3 0-6 2.7-6 6v10h10V14h-6c0-2.2 1.8-4 4-4V8z"/>
+			</svg>
+
+			<div class="carousel-container relative mb-8 min-h-[200px] xl:min-h-[400px]">
+				<div class="carousel-slide active">
+					<p class="text-2xl lg:text-4xl text-yellow-100 leading-relaxed relative z-10">
+						Elegí esta profesión porque va mucho más allá de "dietas".
+						Porque la nutrición no es castigo, ni miedo, ni restricciones eternas.
+					</p>
+				</div>
+
+				<div class="carousel-slide">
+					<p class="text-2xl lg:text-4xl text-yellow-100 leading-relaxed">
+						Me apasiona desmentir mitos, enseñar a comer sin culpa, ayudar a recuperar salud, ganar resistencia, fuerza, músculo y estética, pero sobre todo hacerlo de forma sostenible para la vida diaria.
+					</p>
+				</div>
+
+				<div class="carousel-slide">
+					<p class="text-2xl lg:text-4xl text-yellow-100 leading-relaxed">
+						Acompañar procesos, crear hábitos y ver cómo las personas se sienten fuertes, seguras y en paz con la comida, es lo que le da sentido a todo.
+					</p>
+				</div>
+			</div>
+
+			<!-- Carousel Dots -->
+			<div class="carousel-dots flex justify-center gap-3 mb-8">
+				<button class="dot active" data-slide="0" aria-label="Go to slide 1"></button>
+				<button class="dot" data-slide="1" aria-label="Go to slide 2"></button>
+				<button class="dot" data-slide="2" aria-label="Go to slide 3"></button>
+			</div>
+
+			<footer class="flex items-center gap-4">
+				<div class="w-px h-12 bg-gradient-to-b from-[#5476f3] to-[#9bbddd]"></div>
+				<div>
+					<cite class="not-italic text-lg font-semibold text-yellow-300">Andrea Guerrero</cite>
+					<p class="text-lg text-slate-200">Nutrióloga</p>
+				</div>
+			</footer>
+		</blockquote>
+	</div>
+</section>
+
+<script>
+	let currentSlide = 0;
+	const slides = document.querySelectorAll('.carousel-slide');
+	const dots = document.querySelectorAll('.dot');
+	const totalSlides = slides.length;
+	let autoPlayInterval: number;
+
+	function showSlide(index: number) {
+		// Remove active class from all slides and dots
+		slides.forEach(slide => slide.classList.remove('active'));
+		dots.forEach(dot => dot.classList.remove('active'));
+
+		// Add active class to current slide and dot
+		slides[index].classList.add('active');
+		dots[index].classList.add('active');
+
+		currentSlide = index;
+	}
+
+	function nextSlide() {
+		const next = (currentSlide + 1) % totalSlides;
+		showSlide(next);
+	}
+
+	function startAutoPlay() {
+		autoPlayInterval = window.setInterval(nextSlide, 5000); // Change slide every 5 seconds
+	}
+
+	function stopAutoPlay() {
+		clearInterval(autoPlayInterval);
+	}
+
+	// Add click handlers to dots
+	dots.forEach((dot, index) => {
+		dot.addEventListener('click', () => {
+			showSlide(index);
+			stopAutoPlay();
+			startAutoPlay(); // Restart autoplay after manual interaction
+		});
+	});
+
+	// Start autoplay on load
+	// startAutoPlay();
+
+	// Pause on hover (optional)
+	const carouselContainer = document.querySelector('.carousel-container');
+	carouselContainer?.addEventListener('mouseenter', stopAutoPlay);
+	carouselContainer?.addEventListener('mouseleave', startAutoPlay);
+</script>
+
+<style>
+	.brief-section {
+		/* background: linear-gradient(to bottom, rgba(11, 11, 64, 1), rgba(19, 24, 42, 0.95)), url('/nutrifit-brief.png'); */
+		background: linear-gradient(to bottom, rgb(17, 17, 39), rgba(0, 0, 0, 0.25)), url('/nutrifit-strong.jpeg');
+		background-size: cover;
+		background-position: center;
+	}
+
+	blockquote {
+		padding: 2rem;
+	}
+
+	@media (min-width: 1024px) {
+		blockquote {
+			padding: 3rem;
+		}
+	}
+
+	/* Carousel Styles */
+	.carousel-container {
+		position: relative;
+		overflow: hidden;
+	}
+
+	.carousel-slide {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		opacity: 0;
+		transition: opacity 0.8s ease-in-out;
+		pointer-events: none;
+	}
+
+	.carousel-slide.active {
+		opacity: 1;
+		pointer-events: auto;
+		position: relative;
+	}
+
+	/* Carousel Dots */
+	.carousel-dots {
+		user-select: none;
+	}
+
+	.dot {
+		width: 12px;
+		height: 12px;
+		border-radius: 50%;
+		background-color: rgba(255, 255, 255, 0.3);
+		border: none;
+		cursor: pointer;
+		transition: all 0.3s ease;
+		padding: 0;
+	}
+
+	.dot:hover {
+		background-color: rgba(255, 255, 255, 0.5);
+		transform: scale(1.2);
+	}
+
+	.dot.active {
+		background: linear-gradient(to right, #5476f3, #9bbddd);
+		width: 32px;
+		border-radius: 6px;
+	}
+</style>
