@@ -8,7 +8,7 @@ interface Particle {
 }
 
 export function initNetwork(canvas: HTMLCanvasElement) {
-  const ctx = canvas.getContext('2d');
+  const ctx: CanvasRenderingContext2D = canvas.getContext('2d')!;
   if (!ctx) return;
 
   const particles: Particle[] = [];
