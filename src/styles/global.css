@@ -88,3 +88,7 @@
   --color-secondary: #FF9800;
   --color-white: #F5F5F5;
 }
+
+html {
+  background-color: var(--color-ivory-500);
+}
