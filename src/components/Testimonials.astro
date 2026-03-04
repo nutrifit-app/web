@@ -1,0 +1,107 @@
+---
+import Testimonial from './Testimonial.astro';
+import testimonials from '../content/testimonials.json';
+
+const half = Math.ceil(testimonials.length / 2);
+const row1 = testimonials.slice(0, half);
+const row2 = testimonials.slice(half);
+---
+
+<section class="testimonials-section py-16 overflow-hidden">
+  <div class="text-center mb-12 px-6">
+    <h2 class="text-3xl md:text-4xl font-bold text-pro-500 mb-3">
+      Lo que dicen nuestros pacientes
+    </h2>
+    <p class="text-sm max-w-sm mx-auto" style="color: #888;">
+      Historias reales de transformación y bienestar
+    </p>
+  </div>
+
+  <div class="testimonials-wrapper relative">
+    <!-- Row 1: slides to the right -->
+    <div class="overflow-hidden mb-4 py-1">
+      <ul class="track track--right flex gap-4 m-0 p-0 list-none">
+        {[...row1, ...row1].map((t) => (
+          <Testimonial name={t.name} content={t.content} />
+        ))}
+      </ul>
+    </div>
+
+    <!-- Row 2: slides to the left -->
+    <div class="overflow-hidden py-1">
+      <ul class="track track--left flex gap-4 m-0 p-0 list-none">
+        {[...row2, ...row2].map((t) => (
+          <Testimonial name={t.name} content={t.content} />
+        ))}
+      </ul>
+    </div>
+  </div>
+</section>
+
+<style>
+  .testimonials-section {
+    background-color: var(--color-ivory-500, #f5f5f5);
+  }
+
+  /* Blurry inset shadow overlays — float above the scrolling tracks */
+  .testimonials-wrapper::before,
+  .testimonials-wrapper::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 200px;
+    z-index: 10;
+    pointer-events: none;
+  }
+
+  .testimonials-wrapper::before {
+    left: 0;
+    background: linear-gradient(
+      to right,
+      var(--color-ivory-500, #f5f5f5) 0%,
+      rgba(245, 245, 245, 0.92) 35%,
+      rgba(245, 245, 245, 0) 100%
+    );
+  }
+
+  .testimonials-wrapper::after {
+    right: 0;
+    background: linear-gradient(
+      to left,
+      var(--color-ivory-500, #f5f5f5) 0%,
+      rgba(245, 245, 245, 0.92) 35%,
+      rgba(245, 245, 245, 0) 100%
+    );
+  }
+
+  /* Card sizing override for horizontal marquee layout */
+  .track :global(.link-card) {
+    width: 300px;
+    min-width: 300px;
+    flex-shrink: 0;
+    margin-bottom: 0;
+    box-sizing: border-box;
+  }
+
+  /* Marquee animations */
+  .track--right {
+    animation: scroll-right 30s linear infinite;
+    will-change: transform;
+  }
+
+  .track--left {
+    animation: scroll-left 30s linear infinite;
+    will-change: transform;
+  }
+
+  @keyframes scroll-left {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+
+  @keyframes scroll-right {
+    from { transform: translateX(-50%); }
+    to   { transform: translateX(0); }
+  }
+</style>
