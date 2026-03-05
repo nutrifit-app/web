@@ -1,11 +1,13 @@
 import { defineConfig } from 'astro/config';
-
+import tailwindcss from "@tailwindcss/vite";
 import icon from "astro-icon";
 
-import tailwindcss from "@tailwindcss/vite";
-// https://astro.build/config
+import { loadEnv } from "vite";
+
+const { SITE_URL, PUBLIC_PATH_URL } = loadEnv(process.env.NODE_ENV, process.cwd(), "");
 export default defineConfig({
-  site: "https://nutrifit-app.github.io",
+  site: SITE_URL,
+  base: PUBLIC_PATH_URL,
   server: {
     port: 3000,
   },
