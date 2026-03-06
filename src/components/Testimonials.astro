@@ -51,7 +51,8 @@ const row2 = testimonials.slice(half);
     pointer-events: none;
   }
 
-  .testimonials-wrapper::before {
+  @media (width >= 80rem /* 1280px */) {
+    .testimonials-wrapper::before {
     left: 0;
     background: linear-gradient(
       to right,
@@ -59,9 +60,9 @@ const row2 = testimonials.slice(half);
       rgba(245, 245, 245, 0.92) 35%,
       rgba(245, 245, 245, 0) 100%
     );
-  }
+    }
 
-  .testimonials-wrapper::after {
+    .testimonials-wrapper::after {
     right: 0;
     background: linear-gradient(
       to left,
@@ -69,6 +70,7 @@ const row2 = testimonials.slice(half);
       rgba(245, 245, 245, 0.92) 35%,
       rgba(245, 245, 245, 0) 100%
     );
+  }
   }
 
   /* Card sizing override for horizontal marquee layout */
