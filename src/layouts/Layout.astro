@@ -4,28 +4,49 @@ import Nav from '../components/Nav.astro';
 
 interface Props {
 	title: string;
+	description?: string;
+	ogImage?: string;
 }
 
-const { title } = Astro.props;
+const SITE_NAME = "Nutrifit";
+const DEFAULT_DESCRIPTION = "Nutrióloga Andrea Guerrero, consulta presencial y en línea. Mexicali, BC. Plan alimenticio, nutrición deportiva, nutrición en enfermedades, aumento de masa muscular, perdida de porcentaje de grasa. Planes de entrenamiento personalizados.";
+
+const {
+	title,
+	description = DEFAULT_DESCRIPTION,
+	ogImage = "/nutrifit-desk.jpeg",
+} = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const ogImageURL = new URL(ogImage, Astro.site);
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="es">
 	<head>
 		<meta charset="UTF-8" />
-		<meta
-			name="description"
-			content="Nutrióloga Andrea Guerrero, 
-			consulta presencial y en línea. Mexicali, BC. 
-			Plan alimenticio, nutrición deportiva, 
-			nutrición en enfermedades, aumento de masa muscular,
-			perdida de porcentaje de grasa.
-			Planes de entrenamiento personalizados"
-		/>
+		<meta name="description" content={description} />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="Nutrióloga Andrea Guerrero" content={Astro.generator} />
-		<title >{title}</title>
+		<link rel="canonical" href={canonicalURL} />
+		<meta name="generator" content={Astro.generator} />
+
+		<!-- Open Graph -->
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content={canonicalURL} />
+		<meta property="og:site_name" content={SITE_NAME} />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:image" content={ogImageURL} />
+		<meta property="og:locale" content="es_MX" />
+
+		<!-- Twitter Card -->
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content={title} />
+		<meta name="twitter:description" content={description} />
+		<meta name="twitter:image" content={ogImageURL} />
+
+		<title>{title}</title>
 	</head>
 	<body>
 		<Nav />
