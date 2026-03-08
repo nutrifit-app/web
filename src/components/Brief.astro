@@ -18,7 +18,7 @@
 
 				<div class="carousel-slide">
 					<p class="text-2xl lg:text-4xl text-yellow-100 leading-relaxed">
-						Me apasiona desmentir mitos, enseñar a comer sin culpa, ayudar a recuperar salud, ganar resistencia, fuerza, músculo y estética, pero sobre todo hacerlo de forma sostenible para la vida diaria.
+						Me apasiona desmentir mitos, enseñar a comer sin culpa, recuperar la salud y ganar resistencia, fuerza y estética de forma sostenible.
 					</p>
 				</div>
 
@@ -30,10 +30,10 @@
 			</div>
 
 			<!-- Carousel Dots -->
-			<div class="carousel-dots flex justify-center gap-3 mb-8">
-				<button class="dot active" data-slide="0" aria-label="Go to slide 1"></button>
-				<button class="dot" data-slide="1" aria-label="Go to slide 2"></button>
-				<button class="dot" data-slide="2" aria-label="Go to slide 3"></button>
+			<div class="carousel-dots flex justify-center items-center gap-5 md:gap-3 mb-8">
+				<button class="dot active" data-slide="0" aria-label="Ver slide 1"></button>
+				<button class="dot" data-slide="1" aria-label="Ver slide 2"></button>
+				<button class="dot" data-slide="2" aria-label="Ver slide 3"></button>
 			</div>
 
 			<footer class="flex items-center gap-4">
@@ -142,25 +142,46 @@
 		user-select: none;
 	}
 
-	.dot {
-		width: 12px;
-		height: 12px;
-		border-radius: 50%;
-		background-color: rgba(255, 255, 255, 0.3);
-		border: none;
-		cursor: pointer;
-		transition: all 0.3s ease;
-		padding: 0;
-	}
+	/* Estilos de los Dots Optimizados */
+.dot {
+    position: relative; /* Necesario para el área expandida */
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.3);
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 0;
+    flex-shrink: 0; /* Evita que se deformen en pantallas pequeñas */
+}
 
-	.dot:hover {
-		background-color: rgba(255, 255, 255, 0.5);
-		transform: scale(1.2);
-	}
+/* El truco de UX: Área táctil expandida */
+.dot::after {
+    content: "";
+    position: absolute;
+    top: -15px; /* Expande 15px hacia arriba */
+    bottom: -15px; /* Expande 15px hacia abajo */
+    left: -10px; /* Expande hacia los lados */
+    right: -10px;
+}
 
-	.dot.active {
-		background: linear-gradient(to right, #5476f3, #9bbddd);
-		width: 32px;
-		border-radius: 6px;
-	}
+.dot:hover {
+    background-color: rgba(255, 255, 255, 0.5);
+    transform: scale(1.1);
+}
+
+.dot.active {
+    background: linear-gradient(to right, #5476f3, #9bbddd);
+    width: 40px; /* Un poco más largo para que sea más obvio */
+    border-radius: 8px;
+}
+
+/* Ajuste para mobile: un poco más de separación entre dots */
+@media (max-width: 768px) {
+    .carousel-dots {
+        gap: 20px; /* Más espacio para evitar clics erróneos */
+        margin-top: 2rem;
+    }
+}
 </style>
