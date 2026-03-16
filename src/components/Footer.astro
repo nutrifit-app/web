@@ -1,42 +1,57 @@
 ---
-import { Icon } from 'astro-icon/components';
+import { Icon } from "astro-icon/components";
 ---
 
-<footer id="contact" class="bg-pro-500 text-ivory-500 px-8 py-16">
-  <div class="max-w-[1440px] mx-auto flex flex-col xl:flex-row justify-between items-center xl:items-start gap-12">
-    
-    <div class="flex flex-col items-center xl:items-start gap-4 order-2 xl:order-1">
-      <p class="text-sm opacity-80">
-        &copy; {new Date().getFullYear()} Nutrifit Andrea Guerrero. Todos los derechos reservados.
+<footer id="contact" class="bg-pro-500 px-8 mx-auto py-16 min-h-[432px] gap-8">
+  <div
+    class="max-w-[1440px] h-full mx-auto flex-col-reverse gap-y-8 xl:gap-y-0 xl:flex-row flex items-center justify-between xl:items-start"
+  >
+    <div>
+      <p class="text-ivory-500 text-sm">
+        &copy; {new Date().getFullYear()} Nutrifit Andrea Guerrero. Todos los derechos
+        reservados.
       </p>
-      <p class="text-[10px] opacity-50 max-w-xs text-center xl:text-left leading-tight italic">
-        Este sitio utiliza cookies para analizar el tráfico y mejorar tu experiencia. 
-        Al navegar, aceptas nuestra política de uso de datos.
+      <p
+        class="text-[12px] text-ivory-500 opacity-80 max-w-xs text-center xl:text-left leading-tight italic pt-1"
+      >
+        Este sitio utiliza cookies para analizar el tráfico y mejorar tu
+        experiencia. Al navegar, aceptas nuestra política de uso de datos.
       </p>
     </div>
-
-    <div class="flex flex-col gap-6 order-1 xl:order-2">
-      <h2 class="text-lg font-semibold text-center xl:text-right tracking-wider">
-        Conectemos
-      </h2>
-      
-      <div class="grid grid-cols-3 xl:flex xl:flex-col gap-8 xl:gap-4 items-center xl:items-end">
-        <a id="instagram-from-website" href="https://www.instagram.com/nutrifit_andrea_guerrero" target="_blank" rel="noopener noreferrer" class="hover:text-primary transition-all hover:scale-110 flex gap-x-4 items-center group">
-          <Icon name="simple-icons:instagram" class="size-10 xl:size-6" />
-          <span class="hidden xl:inline group-hover:underline">Instagram</span>
+    <div class="flex flex-col gap-y-8">
+      <h2 class="text-ivory-500 text-center">Búscanos en</h2>
+      <div class="flex flex-row xl:flex-col justify-center items-center gap-6">
+        <a
+          href="https://www.instagram.com/nutrifit_andrea_guerrero"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Instagram"
+          class="text-ivory-500 hover:text-primary transition-colors flex gap-x-4 items-center"
+        >
+          <Icon name="simple-icons:instagram" class="size-9" />
+          <span class="hidden xl:inline">Instagram</span>
         </a>
-        
-        <a id="whatsapp-footer-from-website" href="https://wa.me/..." target="_blank" rel="noopener noreferrer" class="hover:text-primary transition-all hover:scale-110 flex gap-x-4 items-center group">
-          <Icon name="simple-icons:whatsapp" class="size-10 xl:size-6" />
-          <span class="hidden xl:inline group-hover:underline">WhatsApp</span>
+        <a
+          href="https://wa.me/526862339446"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="WhatsApp"
+          class="text-ivory-500 hover:text-primary transition-colors flex gap-x-4 items-center"
+        >
+          <Icon name="simple-icons:whatsapp" class="size-9" />
+          <span class="hidden xl:inline">WhatsApp</span>
         </a>
-
-        <a id="facebook-from-website" href="https://www.facebook.com/..." target="_blank" rel="noopener noreferrer" class="hover:text-primary transition-all hover:scale-110 flex gap-x-4 items-center group">
-          <Icon name="simple-icons:facebook" class="size-10 xl:size-6" />
-          <span class="hidden xl:inline group-hover:underline">Facebook</span>
+        <a
+          href="https://www.facebook.com/NutriologaAndreaGuerrero1"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Facebook"
+          class="text-ivory-500 hover:text-primary transition-colors flex gap-x-4 items-center"
+        >
+          <Icon name="simple-icons:facebook" class="size-9" />
+          <span class="hidden xl:inline">Facebook</span>
         </a>
       </div>
     </div>
-
   </div>
 </footer>
