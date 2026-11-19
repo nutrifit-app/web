@@ -9,12 +9,12 @@ interface Props {
 }
 
 const SITE_NAME = "Nutrifit";
-const DEFAULT_DESCRIPTION = "Nutrióloga Andrea Guerrero, consulta presencial y en línea. Mexicali, BC. Plan alimenticio, nutrición deportiva, nutrición en enfermedades, aumento de masa muscular, perdida de porcentaje de grasa. Planes de entrenamiento personalizados.";
+const DEFAULT_DESCRIPTION = "Nutrióloga Andrea Guerrero, consulta presencial en Mexicali y San Felipe. Consulta en línea para todo México.";
 
 const {
 	title,
 	description = DEFAULT_DESCRIPTION,
-	ogImage = "/nutrifit-desk.jpeg",
+	ogImage = "nutrifit-determination.jpeg",
 } = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
